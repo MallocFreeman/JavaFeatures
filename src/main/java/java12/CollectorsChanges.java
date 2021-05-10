@@ -1,5 +1,6 @@
 package java12;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -16,20 +17,47 @@ public class CollectorsChanges {
 
   /**
    * https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/stream/Collectors.html
-   * Teeing = Abschlag
-   * Namings seems weird...
+   * Teeing = Abschlag Namings seems weird...
    *
    * @param args
    */
   public static void main(String[] args) {
-    double mean =
-        IntStream.rangeClosed(1, 100)
-            .boxed()
-            .collect(
-                Collectors.teeing(
-                    Collectors.summingDouble(i -> i),
-                    Collectors.counting(),
-                    (sum, count) -> sum / count));
-    System.out.println(mean);
+    List<Integer> randomIntegerStream = createRandomIntegerStream();
+
+    System.out.println(meanOld(randomIntegerStream));
+    System.out.println(meanNew(randomIntegerStream));
+  }
+
+  /**
+   * This example is not really good. Min/Max in one iteration would suit better ! For the next
+   * iteration.
+   */
+  private static double meanNew(List<Integer> randomValues) {
+    return randomValues.stream()
+        .collect(
+            Collectors.teeing(
+                Collectors.summingDouble(i -> i),
+                Collectors.counting(),
+                (sum, count) -> sum / count));
+  }
+
+  private static double meanOld(List<Integer> randomValues) {
+    double count = 0;
+    double sum = 0;
+    for (Integer integer : randomValues) {
+      count++;
+      sum += integer;
+    }
+    return sum / count;
+  }
+
+  private static double meanOld2(List<Integer> randomValues) {
+    return randomValues.stream().mapToInt(Integer::intValue).sum() / (randomValues.size() * 1.0);
+  }
+
+  private static List<Integer> createRandomIntegerStream() {
+    return IntStream.rangeClosed(0, (int) (Math.random() * 1000))
+        .boxed()
+        .collect(Collectors.toList());
   }
 }
