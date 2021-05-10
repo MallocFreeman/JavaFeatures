@@ -23,15 +23,15 @@ public class NumberFormatter {
     System.out.println(formatShort(2592));
   }
 
-  private static String formatLong(int number) {
+  private static String formatLong(long number) {
     return format(Style.LONG, number);
   }
 
-  private static String formatShort(int number) {
+  private static String formatShort(long number) {
     return format(Style.SHORT, number);
   }
 
-  private static String format(NumberFormat.Style style, int number) {
+  private static String format(NumberFormat.Style style, long number) {
     NumberFormat likesLong = NumberFormat.getCompactNumberInstance(new Locale("de", "DE"), style);
     likesLong.setMaximumFractionDigits(2);
     return likesLong.format(number);

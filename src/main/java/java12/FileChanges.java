@@ -17,11 +17,19 @@ public class FileChanges {
     System.out.println(mismatch());
   }
 
+  /**
+   * @return -1 if equal, else the position of mismatch
+   * @throws IOException if something weird happens
+   */
   private static long mismatch() throws IOException {
-    Path filePath1 = Files.createTempFile("demo1", ".txt");
-    Path filePath2 = Files.createTempFile("demo2", ".txt");
-    Files.writeString(filePath1, "I am demo 1 :)");
-    Files.writeString(filePath2, "I am demo 2 :)");
-    return Files.mismatch(filePath1, filePath2);
+    Path demo1 = createTxtFileWithValue("demo1", "I am demo 1 :)");
+    Path demo2 = createTxtFileWithValue("demo2", "I am demo 2 :)");
+    return Files.mismatch(demo1, demo2);
+  }
+
+  private static Path createTxtFileWithValue(String fileName, String value) throws IOException {
+    Path tempFile = Files.createTempFile(fileName, ".txt");
+    Files.writeString(tempFile, value);
+    return tempFile;
   }
 }

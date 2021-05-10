@@ -5,6 +5,8 @@ public class StringClassChanges {
   public static void main(String[] args) {
     indent(10);
     indent(-10);
+
+    transform();
   }
 
   private static void indent(int indentCount) {

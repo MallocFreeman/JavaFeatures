@@ -14,14 +14,22 @@ import java.util.stream.IntStream;
  */
 public class CollectorsChanges {
 
+  /**
+   * https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/stream/Collectors.html
+   * Teeing = Abschlag
+   * Namings seems weird...
+   *
+   * @param args
+   */
   public static void main(String[] args) {
-    double mean = IntStream.range(1, 6)
-        .boxed()
-        .collect(
-            Collectors.teeing(
-                Collectors.summingDouble(i -> i),
-                Collectors.counting(),
-                (sum, count) -> sum / count));
+    double mean =
+        IntStream.rangeClosed(1, 100)
+            .boxed()
+            .collect(
+                Collectors.teeing(
+                    Collectors.summingDouble(i -> i),
+                    Collectors.counting(),
+                    (sum, count) -> sum / count));
     System.out.println(mean);
   }
 }
