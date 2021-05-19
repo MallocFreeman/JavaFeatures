@@ -10,7 +10,9 @@ import java.io.PrintStream;
  */
 public class DefaultInterface {
 
-  public static void main(String... args) {}
+  public static void main(String... args) {
+    new LordOfThePrinter().print("Moin");
+  }
 
   private static class LordOfThePrinter implements ErrorPrinter, ConsolePrinter {
     /*

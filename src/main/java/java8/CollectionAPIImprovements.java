@@ -15,8 +15,7 @@ public class CollectionAPIImprovements {
   }
 
   private static void removeIf() {
-    List<Integer> dummies = createDummies();
-    dummies.removeIf(value -> value % 2 == 0);
+    createDummies().removeIf(value -> value % 2 == 0);
   }
 
   private static List<Integer> createDummies() {
