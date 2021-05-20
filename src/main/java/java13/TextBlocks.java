@@ -1,8 +1,8 @@
 package java13;
 
 /**
- * <a href="https://openjdk.java.net/jeps/368">Text block enhancement proposal</a>
- * <a href="https://www.baeldung.com/java-text-blocks">More on text blocks</a>
+ * @see <a href="https://openjdk.java.net/jeps/368">Text block enhancement proposal</a>
+ * @see <a href="https://www.baeldung.com/java-text-blocks">More on text blocks</a>
  */
 public class TextBlocks {
   public static void main(String[] args) {

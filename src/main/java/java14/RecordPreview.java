@@ -2,7 +2,10 @@ package java14;
 
 import java.util.Objects;
 
-/** @see <a href="https://www.baeldung.com/java-record-keyword">Record at Baeldung</a> */
+/**
+ * @see  <a href="https://openjdk.java.net/jeps/359">Java enhancement proposal for records</a>
+ * @see <a href="https://www.baeldung.com/java-record-keyword">Record at Baeldung</a>
+ */
 public class RecordPreview {
 
   public static void main(String[] args) {

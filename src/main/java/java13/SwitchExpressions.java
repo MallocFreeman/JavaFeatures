@@ -1,7 +1,7 @@
 package java13;
 
 /**
- * <a href="https://openjdk.java.net/jeps/354">Switch expression enhancement proposal</a>
+ * @see <a href="https://openjdk.java.net/jeps/354">Switch expression enhancement proposal</a>
  */
 public class SwitchExpressions {
   public static void main(String[] args) {
