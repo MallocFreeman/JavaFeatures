@@ -8,4 +8,4 @@ package java15.sealedClasses;
  * sealed, non-sealed, or final. This ensures the class hierarchy remains finite and known by the
  * compiler.
  */
-public class Animal /*extends Person*/ {}
+public class Animal /*extends Person */ {}

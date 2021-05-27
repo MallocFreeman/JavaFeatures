@@ -9,5 +9,5 @@ package java15.sealedClasses;
  * For further information take a look at the <a href="https://openjdk.java.net/jeps/360">JEP</a>
  *
  */
-public abstract sealed class Person permits Manager, Employee{
+public abstract sealed class Person permits Employee, Manager {
 }
